@@ -1,0 +1,121 @@
+@keyframes iconshake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(-5deg);
+    }
+
+    75% {
+        transform: rotate(5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes discount-scale {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes sk-foldCubeAngle {
+
+    0%,
+    10% {
+        -webkit-transform: perspective(140px) rotateX(-180deg);
+        transform: perspective(140px) rotateX(-180deg);
+        opacity: 0;
+    }
+
+    25%,
+    75% {
+        -webkit-transform: perspective(140px) rotateX(0deg);
+        transform: perspective(140px) rotateX(0deg);
+        opacity: 1;
+    }
+
+    90%,
+    100% {
+        -webkit-transform: perspective(140px) rotateY(180deg);
+        transform: perspective(140px) rotateY(180deg);
+        opacity: 0;
+    }
+}
+
+@keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    50% {
+        -webkit-transform: translateY(-70px) rotate(90deg);
+        transform: translateY(-70px) rotate(90deg);
+    }
+
+    60% {
+        -webkit-transform: translateY(-70px) rotate(90deg);
+        transform: translateY(-70px) rotate(90deg);
+    }
+
+    100% {
+        -webkit-transform: translateY(-8px) rotate(90deg);
+        transform: translateY(-8px) rotate(90deg);
+    }
+}
+
+@keyframes slide-post {
+    50% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    100% {
+        -webkit-transform: translateY(-70px);
+        transform: translateY(-70px);
+    }
+}
+
+@keyframes fade-in-fwd {
+    0% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    0% {
+   
+    }
+
+    50% {
+        border: 2px solid #fff;
+        background-color: #000;
+        color: #fff;
+    }
+
+    100% {
+   
+    }
+}

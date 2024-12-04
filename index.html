@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/vendors/all.min.css">
+    <link rel="stylesheet" href="css/vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="css/pages/index.css">
+    <link rel="icon" href="img/icon.png">
+    <title>Shopify - log in</title>
+</head>
+
+<body>
+    <!-- loader -->
+    <div class="loader">
+        <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
+    </div>
+    <!-- form -->
+    <section>
+        <div class="container-fluid">
+            <div class="login_form row">
+                <h4 class="col-10">Log In</h4>
+                <!-- user -->
+                <label class="col-5" for="login_username">username<i
+                        class="fa-solid fa-circle-user"></i></label>
+                <input class="col-7 input login_username" type="text" id="login_username"
+                    name="username">
+                <!-- password -->
+                <label class="col-5" for="login_password">password<i
+                        class="fa-solid fa-lock"></i></label>
+                <input class="col-7 input login_password" type="password" id="login_password"
+                    name="password">
+                <!-- btn -->
+                <button type="submit" class="col-5 login_btn" id="login_btn">
+                    log in
+                </button>
+                <!-- alert -->
+                <p class="col-10 alerttext d-none" id="denied">
+                    kindly creat an account first
+                </p>
+                <!-- to signup -->
+                <a class="signup_direct" href="signup.html">
+                    don't have an account ? sign up
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
