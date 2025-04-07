@@ -1,225 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/vendors/all.min.css" />
+    <link rel="stylesheet" href="css/vendors/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/pages/cart.css" />
+    <link rel="icon" href="img/icon.ico" />
+    <title>SShop - Cart</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/vendors/all.min.css">
-    <link rel="stylesheet" href="css/vendors/bootstrap.min.css">
-    <link rel="stylesheet" href="css/pages/cart.css">
-    <link rel="icon" href="img/icon.png">
-    <title>Shopify - Cart</title>
-</head>
-
-<body>
-    <!-- popup -->
-    <div class="prodDetails" id="prodDetails">
-    </div>
+  <body>
     <!-- background -->
-    <div class="background">
-    </div>
+    <div class="background"></div>
+    
     <!-- loader -->
     <div class="loader">
-        <div class="sk-folding-cube">
-            <div class="sk-cube1 sk-cube"></div>
-            <div class="sk-cube2 sk-cube"></div>
-            <div class="sk-cube4 sk-cube"></div>
-            <div class="sk-cube3 sk-cube"></div>
-        </div>
+      <div class="sk-folding-cube">
+        <div class="sk-cube1 sk-cube"></div>
+        <div class="sk-cube2 sk-cube"></div>
+        <div class="sk-cube4 sk-cube"></div>
+        <div class="sk-cube3 sk-cube"></div>
+      </div>
     </div>
-    <!-- main navbar -->
-    <section>
-        <div class="container-fluid">
-            <div class="main navbar row">
-                <!-- links -->
-                <div class="links col-4 row">
-                    <ul class="nav-items-list row">
-                        <li class="nav-item col-3">
-                            <a class="nav-link" href="homepage.html">
-                                home
-                                <i class="fa-solid fa-house"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item col-3">
-                            <a class="nav-link" href="wishlist.html">
-                                wishlist
-                                <i class="fa-solid fa-heart"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item col-3">
-                            <a class="nav-link" href="orders.html">
-                                orders
-                                <i class="fa-regular fa-bags-shopping"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- logo -->
-                <div class="logo row col-3">
-                    <a href="homepage.html" class="nav-link">
-                        <img src="img/logo.png" alt="">
-                    </a>
-                </div>
 
-                <!-- greeting user & logout -->
-                <div class="greeting row col-2">
-                    <h5>
-                        welcome,
-                        <span id="userGreetings">
-                            user
-                        </span>
-                        <a href="index.html" class="logout">
-                            <i class="fa-solid fa-right-from-bracket"></i>
-                        </a>
-                    </h5>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- small navbar -->
-    <section class="small small-nav">
-        <a class="open-offcanvas" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
-            aria-controls="offcanvasScrolling">
-            <i class="fa-solid fa-bars"></i>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="img/logo.png" alt="" />
         </a>
-        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-            id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
-                    welcome,
-                    <span id="userGreetings">
-                        user
-                    </span>
-                    <i class="fa-solid fa-heart"></i>
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="links">
-                    <li class="nav-item">
-                        <a class="nav-link" href="homepage.html">
-                            home
-                            <i class="fa-solid fa-house"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="wishlist.html">
-                            wishlist
-                            <i class="fa-solid fa-heart"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="orders.html">
-                            orders
-                            <i class="fa-regular fa-bags-shopping"></i>
-                        </a>
-                    </li>
-                    <a href="index.html" class="logout">
-                        log out
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                    </a>
-            </div>
-            </ul>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-5 mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="orders.html">Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="wishlist.html">Wishlist</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cart.html">Cart</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="searchInput me-2"
+              id="searchInput"
+              type="search"
+              placeholder="Search products..."
+              aria-label="Search"
+            />
+          </form>
         </div>
-    </section>
-    <!-- header small logo -->
-    <div class="small headersmall">
-        <a href="homepage.html">
-            <img src="img/logo.png" alt="">
-        </a>
-    </div>
+      </div>
+    </nav>
+
     <!-- items -->
     <section>
-        <div class="container-fluid">
-            <div class="selected row" id="selected">
-            </div>
-            <!-- pay -->
-            <div class="col-12 row finilize" id="finilize">
-                <!-- checkout btn -->
-                <div class="container" id="popuptheForm">
-                    <div class="left-side">
-                        <div class="card">
-                            <div class="card-line"></div>
-                            <div class="buttons"></div>
-                        </div>
-                        <div class="post">
-                            <div class="post-line"></div>
-                            <div class="screen">
-                                <div class="dollar">$</div>
-                            </div>
-                            <div class="numbers"></div>
-                            <div class="numbers-line2"></div>
-                        </div>
-                    </div>
-                    <div class="right-side">
-                        <div class="new">Checkout</div>
-                    </div>
+      <div class="container-fluid">
+        <div class="selected row" id="selected"></div>
+        <!-- pay -->
+        <div class="col-12 row finilize" id="finilize">
+          <!-- checkout btn -->
+          <div class="container" id="popuptheForm">
+            <div class="left-side">
+              <div class="card">
+                <div class="card-line"></div>
+                <div class="buttons"></div>
+              </div>
+              <div class="post">
+                <div class="post-line"></div>
+                <div class="screen">
+                  <div class="dollar">$</div>
                 </div>
+                <div class="numbers"></div>
+                <div class="numbers-line2"></div>
+              </div>
             </div>
-            <!-- checkout modal -->
-            <div class="checkoutForm" id="checkoutForm">
-                <div class="payForm row">
-                    <!-- username -->
-                    <div class="sec col-8">
-                        <label class="col-10" for="usernameInput">username:</label>
-                        <input class="inputField col-12" type="text" name="usernmame" id="usernameInput"
-                            value="username" readonly>
-                    </div>
-                    <!-- address -->
-                    <div class="sec col-8">
-                        <label class="col-10" for="address">full detailed address:</label>
-                        <input class="inputField col-12" type="text" name="address" id="address"
-                            autocomplete="address-level1">
-                    </div>
-                    <!-- card holder -->
-                    <div class="sec col-10">
-                        <label class="col-10" for="cardHolder">Card holder name:</label>
-                        <input class="inputField col-12" type="text" name="card holder" id="cardHolder"
-                            autocomplete="off">
-                    </div>
-                    <!-- card number -->
-                    <div class="sec row col-6">
-                        <label class="col-10" for="cardNumber">card number:</label>
-                        <div class="InputContainer">
-                            <input class="inputField col-12" type="text" name="cardNumber" id="cardNumber">
-                        </div>
-                    </div>
-                    <!-- cvv -->
-                    <div class="sec row col-3">
-                        <label class="col-10" for="cvv">CVV:</label>
-                        <input class="inputField col-10" type="number" name="cvv" id="cvv" autocomplete="cc-csc">
-                    </div>
-                    <!-- exp. date -->
-                    <div class="sec row col-3">
-                        <label class="col-10" for="expDate">exp. date:</label>
-                        <input class="inputField col-10" type="text" id="expDate" name="expDate" placeholder="MM/YY" />
-
-                    </div>
-                    <!-- total -->
-                    <div class="sec col-10">
-                        <h4 class="totalPrrice" id="totalPrrice"> EGP</h4>
-                    </div>
-                    <!-- actions -->
-                    <div class="sec actions col-10">
-                        <button type="submit" class="pay" id="finalPay">
-                            checkout
-                            <i class="fa-solid fa-circle-dollar"></i>
-                        </button>
-                        <button class="cancelPayment" id="cancelPayment">
-                            Cancel payment
-                            <i class="fa-solid fa-ban"></i>
-                        </button>
-                    </div>
-                </div>
+            <div class="right-side">
+              <div class="new">Checkout</div>
             </div>
+          </div>
         </div>
+        <!-- checkout modal -->
+        <div class="checkoutForm" id="checkoutForm">
+          <div class="payForm row">
+            <!-- username -->
+            <div class="sec col-8">
+              <label class="col-10" for="usernameInput">username:</label>
+              <input
+                class="inputField col-12"
+                type="text"
+                name="usernmame"
+                id="usernameInput"
+                value="username"
+                readonly
+              />
+            </div>
+            <!-- address -->
+            <div class="sec col-8">
+              <label class="col-10" for="address">full detailed address:</label>
+              <input
+                class="inputField col-12"
+                type="text"
+                name="address"
+                id="address"
+                autocomplete="address-level1"
+              />
+            </div>
+            <!-- card holder -->
+            <div class="sec col-10">
+              <label class="col-10" for="cardHolder">Card holder name:</label>
+              <input
+                class="inputField col-12"
+                type="text"
+                name="card holder"
+                id="cardHolder"
+                autocomplete="off"
+              />
+            </div>
+            <!-- card number -->
+            <div class="sec row col-6">
+              <label class="col-10" for="cardNumber">card number:</label>
+              <div class="InputContainer">
+                <input
+                  class="inputField col-12"
+                  type="text"
+                  name="cardNumber"
+                  id="cardNumber"
+                />
+              </div>
+            </div>
+            <!-- cvv -->
+            <div class="sec row col-3">
+              <label class="col-10" for="cvv">CVV:</label>
+              <input
+                class="inputField col-10"
+                type="number"
+                name="cvv"
+                id="cvv"
+                autocomplete="cc-csc"
+              />
+            </div>
+            <!-- exp. date -->
+            <div class="sec row col-3">
+              <label class="col-10" for="expDate">exp. date:</label>
+              <input
+                class="inputField col-10"
+                type="text"
+                id="expDate"
+                name="expDate"
+                placeholder="MM/YY"
+              />
+            </div>
+            <!-- total -->
+            <div class="sec col-10">
+              <h4 class="totalPrrice" id="totalPrrice">EGP</h4>
+            </div>
+            <!-- actions -->
+            <div class="sec actions col-10">
+              <button type="submit" class="pay" id="finalPay">
+                checkout
+                <i class="fa-solid fa-circle-dollar"></i>
+              </button>
+              <button class="cancelPayment" id="cancelPayment">
+                Cancel payment
+                <i class="fa-solid fa-ban"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-
-
     <!-- script -->
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/cart.js"></script>
-</body>
-
+  </body>
 </html>

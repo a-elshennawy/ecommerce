@@ -1,55 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/vendors/all.min.css" />
+    <link rel="stylesheet" href="css/vendors/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/pages/signup.css" />
+    <link rel="icon" href="img/icon.ico" />
+    <title>SShop - sign up</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/vendors/all.min.css">
-    <link rel="stylesheet" href="css/vendors/bootstrap.min.css">
-    <link rel="stylesheet" href="css/pages/signup.css">
-    <link rel="icon" href="img/icon.png">
-    <title>Shopify - sign up</title>
-</head>
-
-<body>
+  <body>
     <!-- loader -->
     <div class="loader">
-        <div class="sk-folding-cube">
-            <div class="sk-cube1 sk-cube"></div>
-            <div class="sk-cube2 sk-cube"></div>
-            <div class="sk-cube4 sk-cube"></div>
-            <div class="sk-cube3 sk-cube"></div>
-        </div>
+      <div class="sk-folding-cube">
+        <div class="sk-cube1 sk-cube"></div>
+        <div class="sk-cube2 sk-cube"></div>
+        <div class="sk-cube4 sk-cube"></div>
+        <div class="sk-cube3 sk-cube"></div>
+      </div>
     </div>
     <!-- form -->
     <section>
-        <div class="container-fluid">
-            <div class="singup_form row">
-                <h4 class="col-10">sign up</h4>
-                <!-- email -->
-                <label class="col-5" for="signup_username">Email<i class="fa-solid fa-envelope"></i></label>
-                <input type="text" class="col-8 input email" id="signup_email" name="email">
-                <!-- user -->
-                <label class="col-5" for="signup_username">username<i class="fa-solid fa-circle-user"></i></label>
-                <input type="text" class="col-8 input signup_username" id="signup_username" name="username">
-                <!-- password -->
-                <label class="col-5" for="signup_password">password<i class="fa-solid fa-lock"></i></label>
-                <input type="password" class="col-8 input signup_password" id="signup_password" name="password">
-                <!-- btn -->
-                <button type="submit" class="col-5 signup_btn" id="signup_btn">
-                    sign up
-                </button>
-                <!-- to login -->
-                <a class="login_direct" href="index.html">
-                    already have an account ? log in
-                </a>
-            </div>
+      <div class="container-fluid">
+        <div class="singup_form row">
+          <h4 class="col-10">sign up</h4>
+          <!-- email -->
+          <label class="col-5" for="signup_username"
+            >Email<i class="fa-solid fa-envelope"></i
+          ></label>
+          <input
+            type="text"
+            class="col-8 input email"
+            id="signup_email"
+            name="email"
+          />
+          <!-- user -->
+          <label class="col-5" for="signup_username"
+            >username<i class="fa-solid fa-circle-user"></i
+          ></label>
+          <input
+            type="text"
+            class="col-8 input signup_username"
+            id="signup_username"
+            name="username"
+          />
+          <!-- password -->
+          <label class="col-5" for="signup_password"
+            >password<i class="fa-solid fa-lock"></i
+          ></label>
+          <input
+            type="password"
+            class="col-8 input signup_password"
+            id="signup_password"
+            name="password"
+          />
+          <!-- btn -->
+          <button type="submit" class="col-5 signup_btn" id="signup_btn">
+            sign up
+          </button>
+          <!-- to login -->
+          <a class="login_direct" href="index.html">
+            already have an account ? log in
+          </a>
         </div>
+      </div>
     </section>
 
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/signup.js"></script>
-</body>
-
+  </body>
 </html>

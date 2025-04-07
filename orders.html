@@ -7,14 +7,12 @@
     <link rel="stylesheet" href="css/vendors/all.min.css">
     <link rel="stylesheet" href="css/vendors/bootstrap.min.css">
     <link rel="stylesheet" href="css/pages/orders.css">
-    <link rel="icon" href="img/icon.png">
+    <link rel="icon" href="img/icon.ico" />
     <title>Shopify - Orders</title>
 </head>
 
 <body>
-    <!-- popup -->
-    <div class="prodDetails" id="prodDetails">
-    </div>
+
     <!-- background -->
     <div class="background">
     </div>
@@ -27,108 +25,49 @@
             <div class="sk-cube3 sk-cube"></div>
         </div>
     </div>
-    <!-- main navbar -->
-    <section>
-        <div class="container-fluid">
-            <div class="main navbar row">
-                <!-- links -->
-                <div class="links col-4 row">
-                    <ul class="nav-items-list row">
-                        <li class="nav-item col-3">
-                            <a class="nav-link" href="homepage.html">
-                                home
-                                <i class="fa-solid fa-house"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item col-3">
-                            <a class="nav-link" href="wishlist.html">
-                                wishlist
-                                <i class="fa-solid fa-heart"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item col-3">
-                            <a href="cart.html" class="nav-link">
-                                cart
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- logo -->
-                <div class="logo row col-3">
-                    <a href="homepage.html" class="nav-link">
-                        <img src="img/logo.png" alt="">
-                    </a>
-                </div>
-                <!-- greeting user & logout -->
-                <div class="greeting row col-2">
-                    <h5>
-                        welcome,
-                        <span id="userGreetings">
-                            user
-                        </span>
-                        <a href="index.html" class="logout">
-                            <i class="fa-solid fa-right-from-bracket"></i>
-                        </a>
-                    </h5>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- small navbar -->
-    <section class="small small-nav">
-        <a class="open-offcanvas" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
-            aria-controls="offcanvasScrolling">
-            <i class="fa-solid fa-bars"></i>
-        </a>
-        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-            id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
-                    welcome,
-                    <span id="userGreetings">
-                        user
-                    </span>
-                    <i class="fa-solid fa-heart"></i>
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="links">
-                    <li class="nav-item">
-                        <a class="nav-link" href="homepage.html">
-                            home
-                            <i class="fa-solid fa-house"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="wishlist.html">
-                            wishlist
-                            <i class="fa-solid fa-heart"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="cart.html" class="nav-link">
-                            cart
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </a>
-                    </li>
-                    <input class="search" id="search" type="search" placeholder="search..." id="productSearch"
-                        onkeyup="searchProduct(this.value)">
-                    <a href="index.html" class="logout">
-                        log out
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                    </a>
-            </div>
-            </ul>
-        </div>
-    </section>
-    <!-- header small logo -->
-    <div class="small headersmall">
-        <a href="homepage.html">
-            <img src="img/logo.png" alt="">
-        </a>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="img/logo.png" alt="" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-5 mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="orders.html">Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="wishlist.html">Wishlist</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cart.html">Cart</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input
+            class="searchInput me-2"
+            id="searchInput"
+            type="search"
+            placeholder="Search products..."
+            aria-label="Search"
+          />
+        </form>
+      </div>
     </div>
+  </nav>
+
+
     <!-- orders -->
     <section>
         <div class="container-fluid">
