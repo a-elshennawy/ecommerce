@@ -1,0 +1,117 @@
+.products {
+  padding: 20px 0px;
+  justify-content: center;
+  align-items: center;
+
+  .prodCard {
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+    background-color: #fff;
+    color: #000;
+    justify-content: center;
+
+    .img {
+      overflow: hidden;
+      img {
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    .details {
+      padding: 5px 0px;
+      h5,
+      h6 {
+        padding: 0px;
+      }
+
+      .title {
+        text-align: start;
+      }
+
+      .price {
+        text-align: end;
+      }
+
+      .category {
+        text-align: start;
+      }
+
+      .tags {
+        text-align: end;
+      }
+
+      .rating {
+        text-align: start;
+      }
+
+      .stock {
+        text-align: end;
+      }
+
+      .shipping {
+        text-align: start;
+      }
+    }
+
+    .btnDiv {
+      justify-content: space-between;
+      padding: 0px;
+
+      .addBtn {
+        border: 1px solid #000;
+        border-radius: 5px;
+        padding: 5px 10px;
+        background-color: #fff;
+        color: #000;
+        transition: box-shadow 0.3s ease-in-out;
+
+        &:hover {
+          background-color: #48ff00;
+          border: none;
+          color: #fff;
+          box-shadow: 0 0 10px #48ff00;
+        }
+      }
+
+      .detailsBtn {
+        border: 1px solid #000;
+        border-radius: 5px;
+        padding: 5px 10px;
+        background-color: #fff;
+        color: #000;
+        transition: box-shadow 0.3s ease-in-out;
+
+        &:hover {
+          background-color: #00aeff;
+          border: none;
+          color: #fff;
+          box-shadow: 0 0 10px #00aeff;
+        }
+      }
+
+      .removeBtn {
+        border: 1px solid #000;
+        border-radius: 5px;
+        padding: 5px 10px;
+        background-color: #fff;
+        color: #000;
+        transition: box-shadow 0.3s ease-in-out;
+
+        &:hover {
+          border: 1px solid #ff0000;
+          background-color: #ff0000;
+          border: none;
+          color: #fff;
+          filter: drop-shadow(0 0 10px #ff0000);
+        }
+      }
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

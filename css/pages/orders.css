@@ -1,113 +1,113 @@
 @import url(../base/fonts.css);
+@import url(../base/animations.css);
 @import url(../base/loader.css);
 @import url(../base/navbar.css);
 
 /* global styles */
 * {
-    text-transform: capitalize !important;
-    box-sizing: border-box;
+  text-transform: capitalize !important;
+  box-sizing: border-box;
 }
 
 :root {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 img {
-    width: 100%;
+  width: 100%;
 }
 
 /* background */
 .background {
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url(../../img/ordersBG.jpg);
-    z-index: -1;
-    filter: brightness(60%);
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../../img/ordersBG.jpg);
+  z-index: -1;
+  filter: brightness(60%);
 }
 
 /* orders */
 .orders {
+  justify-content: center;
+  margin: 20px;
+  gap: 20px;
+  z-index: 1111;
+
+  .order {
+    width: fit-content;
+    height: fit-content;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px #000;
+    border-radius: 10px;
+    flex-direction: column;
     justify-content: center;
-    margin: 20px;
-    gap: 20px;
-    z-index: 1111;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
 
-    .order {
-        width: fit-content;
-        height: fit-content;
-        backdrop-filter: blur(5px);
-        box-shadow: 0 0 10px #000;
-        border-radius: 10px;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        padding: 5px;
+    .orderedItem {
+      background-color: #fff;
+      justify-content: center;
+      padding: 0;
 
-        .orderedItem {
-            background-color: #fff;
-            justify-content: center;
-            padding: 0;
+      .img {
+        padding: 0;
+        align-content: center;
+      }
 
-            .img {
-                padding: 0;
-                align-content: center;
-            }
+      .name {
+        padding: 0;
+        text-align: start;
+        align-content: center;
+        font-family: Archivo-Regular;
+      }
 
-            .name {
-                padding: 0;
-                text-align: start;
-                align-content: center;
-                font-family: Archivo-Regular;
-            }
+      .det {
+        align-content: center;
+        text-align: center;
+        padding: 0px;
 
-            .det {
-                align-content: center;
-                text-align: center;
-                padding: 0px;
+        button {
+          width: fit-content;
+          padding: 20px;
+          border: 1px solid #000;
+          background-color: #fff;
+          transition: all 0.5s ease-in-out;
+          font-family: Archivo-Regular;
 
-                button {
-                    width: fit-content;
-                    padding: 20px;
-                    border: 1px solid #000;
-                    background-color: #fff;
-                    transition: all .5s ease-in-out;
-                    font-family: Archivo-Regular;
+          h4 {
+            font-size: 20px;
+            display: inline;
+            margin-inline-end: 5px;
+          }
 
-                    h4 {
-                        font-size: 20px;
-                        display: inline;
-                        margin-inline-end: 5px;
-                    }
+          i {
+            font-size: 20px;
+            display: inline;
+          }
 
-                    i {
-                        font-size: 20px;
-                        display: inline;
-                    }
-
-                    &:hover {
-                        background-color: #000;
-                        color: #fff;
-                    }
-                }
-            }
-
+          &:hover {
+            background-color: #000;
+            color: #fff;
+          }
         }
-
-        .totPrice {
-            text-align: center;
-
-            h4 {
-                color: #fff;
-                margin: 10px 0px;
-                font-family: Archivo-Regular;
-            }
-        }
+      }
     }
+
+    .totPrice {
+      text-align: center;
+
+      h4 {
+        color: #fff;
+        margin: 10px 0px;
+        font-family: Archivo-Regular;
+      }
+    }
+  }
 }
