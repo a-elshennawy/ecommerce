@@ -1,7 +1,17 @@
 // loader
-$(document).ready(function () {
-    $(".loader").fadeOut(1000);
-})
+//the loader
+document.addEventListener("DOMContentLoaded", function () {
+    const loader = document.querySelector(".loader");
+  
+    if (loader) {
+      loader.style.display = "none";
+      setTimeout(() => {
+        if (loader) {
+          loader.style.display = "none";
+        }
+      }, 1000);
+    }
+  });
 
 // signup variables
 let signupEmail = document.getElementById("signup_email");

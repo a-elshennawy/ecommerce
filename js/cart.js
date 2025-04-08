@@ -1,9 +1,17 @@
 // loader
-$(document).ready(function () {
-  $(".loader").fadeOut(1000);
-
+document.addEventListener('DOMContentLoaded', function () {
+  const loader = document.querySelector(".loader");
   const productsContainer = document.getElementById("productsContainer");
   const chekoutBtn = document.getElementById("CheckoutBtn");
+
+  if (loader) {
+      loader.style.display = 'none';
+      setTimeout(() => {
+          if (loader) {
+              loader.style.display = 'none';
+          }
+      }, 1000);
+  }
 
   productsContainer.innerHTML = "<p>Loading your cart...</p>";
 

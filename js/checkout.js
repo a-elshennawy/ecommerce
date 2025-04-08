@@ -1,9 +1,17 @@
 // loader
-$(document).ready(function () {
-  $(".loader").fadeOut(1000);
-
+document.addEventListener("DOMContentLoaded", function () {
+  const loader = document.querySelector(".loader");
   let totalAmount = document.getElementById("totalAmount");
   let SubmitBtn = document.getElementById("SubmitBtn");
+
+  if (loader) {
+    loader.style.display = "none";
+    setTimeout(() => {
+      if (loader) {
+        loader.style.display = "none";
+      }
+    }, 1000);
+  }
 
   let username = null;
   const loginData = JSON.parse(localStorage.getItem("login"));
