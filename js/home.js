@@ -166,11 +166,14 @@ function searchProductsFromApi(term) {
             <h6 class="shipping col-12">${product.shippingInformation}</h6>
           </div>
           <div class="btnDiv row col-12">
-          <button class="addBtn col-5" onclick="addToCart(${product.id})">
-          add to cart
+          <button class="addBtn col-2" onclick="addToCart(${product.id})">
+          <i class="fa-solid fa-cart-plus"></i>
           </button>
-          <button class="detailsBtn col-5" onclick="moredetails(${product.id})">
-          more details
+          <button class="wishBtn col-2" onclick="wishItem(${product.id})">
+          <i class="fa-solid fa-heart-circle-plus"></i>
+          </button>
+          <button class="detailsBtn col-2" onclick="moredetails(${product.id})">
+          <i class="fa-solid fa-circle-info"></i>
           </button>
           </div>
         </div>
@@ -188,10 +191,7 @@ function searchProductsFromApi(term) {
 function addToCart(productId) {
   // Retrieve the username of the logged-in user from localStorage
   const loginData = JSON.parse(localStorage.getItem("login"));
-  if (!loginData || !loginData.username) {
-    console.error("User not logged in or username not found.");
-    return;
-  }
+
   const username = loginData.username;
   const storageKey = `ordered_products_${username}`;
 
@@ -205,16 +205,12 @@ function addToCart(productId) {
   // Save the updated array back to localStorage
   localStorage.setItem(storageKey, JSON.stringify(orderedProducts));
 
-  console.log(`Product ID ${productId} added to cart for user ${username}.`);
-  // You might want to add some user feedback here, like updating a cart counter
+  console.log(`Product ID ${productId} is added to ${username} cart.`);
 }
 
 function moredetails(productId) {
   const loginData = JSON.parse(localStorage.getItem("login"));
-  if (!loginData || !loginData.username) {
-    console.error("User not logged in or username not found.");
-    return;
-  }
+
   const username = loginData.username;
   const storageKey = `detailed_product_${username}`;
 
@@ -225,6 +221,22 @@ function moredetails(productId) {
   console.log(
     `Product ID ${productId} will be shown in details right now ${username}.`
   );
+  window.location.href = "productDetails.html";
+}
+
+function wishItem(productId) {
+  const loginData = JSON.parse(localStorage.getItem("login"));
+
+  const username = loginData.username;
+  const storageKey = `wished_products_${username}`;
+  
+  let wishedProducts = localStorage.getItem(storageKey);
+  wishedProducts = wishedProducts ? JSON.parse(wishedProducts) : [];
+
+  wishedProducts.push(productId);
+
+  localStorage.setItem(storageKey, JSON.stringify(wishedProducts));
+  console.log(`product id ${productId} is added to ${username} wishlist.`);
 }
 
 // scroll top btn

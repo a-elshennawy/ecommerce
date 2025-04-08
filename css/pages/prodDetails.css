@@ -1,0 +1,103 @@
+@import url(../base/fonts.css);
+@import url(../base/animations.css);
+@import url(../base/loader.css);
+@import url(../base/navbar.css);
+
+/* global styles */
+* {
+  text-transform: capitalize !important;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+}
+
+img {
+  width: 100%;
+}
+
+body {
+  color: #fff;
+  text-align: center;
+}
+
+.productsContainer {
+  margin: 20px 0px;
+  background-color: #000000a9;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  filter: drop-shadow(0 0 10px #000);
+  padding: 10px;
+  justify-content: center;
+
+  .prodDetails {
+    justify-content: center;
+    align-items: center;
+
+    .details {
+      text-align: start !important;
+      .title {
+        padding: 0 !important;
+        margin-bottom: 10px;
+      }
+      .brand {
+        padding: 0 !important;
+        margin-bottom: 10px;
+      }
+      p {
+        padding: 0px !important;
+        margin-bottom: 10px;
+      }
+      .btnDiv {
+        text-align: center;
+        .addBtn {
+          border: 1px solid #fff;
+          border-radius: 10px;
+          padding: 5px 10px;
+          background-color: #000000a9;
+          color: #fff;
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            filter: drop-shadow(0 0 10px #0cff2d);
+            border: 1px solid #0cff2d;
+            color: #0cff2d;
+          }
+        }
+      }
+    }
+  }
+
+  .reviewsConatiner {
+    justify-content: start;
+    .reviewHeader {
+      text-align: start;
+      padding: 0px !important;
+      margin-bottom: 10px;
+    }
+
+    .reviews {
+      list-style: none;
+      padding: 0px !important;
+
+      .reviewItem {
+        text-align: start;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.background {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../../img/pexels-apasaric-3423860.jpg);
+  z-index: -1;
+  filter: brightness(40%);
+}

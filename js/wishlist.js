@@ -1,157 +1,159 @@
 // loader
 $(document).ready(function () {
-    $(".loader").fadeOut(1000);
-});
-// Retrieve username from localStorage
-const username = JSON.parse(localStorage.getItem("login")).username;
-// userGreetings
-document.querySelectorAll("#userGreetings").forEach(span => {
-    span.innerHTML = username;
-});
-// getting added products from local storage
-(async () => {
-    try {
-        // Get the wishlist items from localStorage
-        const username = JSON.parse(localStorage.getItem("login")).username;
-        let wishlist = JSON.parse(localStorage.getItem(`wishlist_${username}`)) || [];
+  $(".loader").fadeOut(1000);
 
+  const productsContainer = document.getElementById("wishlist");
 
-        // If wishlist is empty, show a message
-        if (wishlist.length === 0) {
-            document.getElementById('wishlist').innerHTML = '<p>Your wishlist is empty.</p>';
-            return;
-        }
+  let username = null;
+  let loginData = JSON.parse(localStorage.getItem("login"));
+  if (loginData && loginData.username) {
+    username = loginData.username;
+  }
 
-        // Fetch the products data
-        let products = await fetch("../API/products.json");
-        products = await products.json();
+  const storageKey = `wished_products_${username}`;
 
-        window.products = products;
+  let productIds = [];
+  try {
+    const wishedProductsIds = localStorage.getItem(storageKey);
 
-        // Find the products in the wishlist and render them
-        let wishedProducts = wishlist.map(itemId => {
-            const product = products.find(p => p.id === itemId);
-            if (!product) return ''; 
-
-            return `
-                <div class="wishedItem row col-12 col-md-10 col-lg-6">
-                    <div class="img col-2">
-                        <img src="${product.img}" alt="${product.name}">
-                    </div>
-                    <div class="info col-6">
-                        <h4>${product.name}</h4>
-                        <h4>${product.price} EGP</h4>
-                    </div>
-                    <div class="actions row col-4">
-                        <button class="addTocart col-10" onclick="addToCart(${product.id})">
-                            add to cart
-                            <i class="fa-solid fa-cart-plus"></i>
-                        </button>
-                        <button class="details col-10" onclick="productDetails(${product.id})">
-                            details
-                            <i class="fa-solid fa-circle-info"></i>
-                        </button>
-                        <button class="remove col-10" onclick="removeFromWishlist(${product.id})">
-                            remove
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </div>
-                </div>
-            `;
-        }).join('');
-
-        // Inject the wished products into the wishlist container
-        document.getElementById('wishlist').innerHTML = wishedProducts;
-
-    } catch (error) {
-        console.error("Error fetching products for wishlist:", error);
+    if (wishedProductsIds) {
+      productIds = JSON.parse(wishedProductsIds);
+      if (!Array.isArray(productIds)) {
+        console.warn(
+          `wishlist data for key ${storageKey} was not an array. Resetting wishlist.`
+        );
+        productIds = [];
+      }
     }
-})();
+  } catch (error) {
+    productsContainer.innerHTML =
+      "<h1>Error retrieving your wishlist data.</h1>";
+    console.error(
+      `wishlist error: Error parsing cart data for key ${storageKey}:`,
+      error
+    );
+    return;
+  }
+  if (productIds.length === 0) {
+    productsContainer.innerHTML = "<h1>Your wihslist is empty.</h1>";
+    return;
+  }
 
-// Function to add an item to the cart
-function addTocart(productId) {
-    // Get the current username 
-    const username = JSON.parse(localStorage.getItem("login")).username;
-
-    // Get current cart from localStorage or initialize as an empty array
-    let cart = JSON.parse(localStorage.getItem(`cart_${username}`)) || [];
-
-    // Add the product to the cart
-    if (!cart.includes(productId)) {
-        cart.push(productId);
-        // Save the updated cart for the current user
-        localStorage.setItem(`cart_${username}`, JSON.stringify(cart));
-    } else {
-        alert("Item is already in the cart");
+  const removeFromWishlist = (productIdToRemove) => {
+    const wishedProductsIds = localStorage.getItem(storageKey);
+    if (wishedProductsIds) {
+      let currentProductIds = JSON.parse(wishedProductsIds);
+      currentProductIds = currentProductIds.filter(
+        (id) => id !== productIdToRemove
+      );
+      localStorage.setItem(storageKey, JSON.stringify(currentProductIds));
+      window.location.reload();
     }
-}
+  };
 
-function productDetails(id) {
-    // Find the product by ID
-    const item = window.products.find(product => product.id === id);
-
-    if (!item) {
-        console.error(`Product with ID ${id} not found`);
-        return;
-    }
-
-    const productDetails = `
-        <div class="row product-details">
-        <button class="closebtn" id="colseBtn">
-        <i class="fa-solid fa-x"></i>
-        </button>
-            <div class="col-4 img">
-                <img src="${item.img}" alt="">
-            </div>
-            <div class="row col-8 details">
-                <div class="col-10 product-info">
-                    <h4>${item.name}</h4>
-                    ${item.sale
-            ? `<h4>${item.discounted_price} EGP</h4>
-                           <h4><del>${item.price} EGP</del></h4>`
-            : `<h4>${item.price} EGP</h4>`}
-                </div>
-                <div class="col-10 description">
-                    <p>${item.description}</p>
-                </div>
-                <div class="col-10 btns">
-                    <button class="col-5 add-to-cart"onclick="addToCart(${item.id})">
-                        <h6>Add to Cart</h6>
-                        <i class="fa-solid fa-cart-plus"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    `;
-
-    document.getElementById('prodDetails').innerHTML = productDetails;
-    document.getElementById('prodDetails').style.display = 'flex';
-    setTimeout(() => {
-        document.getElementById('prodDetails').style.opacity = '1';
-    }, 500);
-
-    document.getElementById('colseBtn').addEventListener('click', () => {
-        document.getElementById('prodDetails').style.opacity = '0';
-        setTimeout(() => {
-            document.getElementById('prodDetails').style.display = 'none';
-        }, 500);
+  const displayWishlist = async () => {
+    const fetchPromises = productIds.map((id) => {
+      return fetch(`https://dummyjson.com/products/${id}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(
+              `HTTP error! status: ${response.status} for product ID ${id}`
+            );
+          }
+          return response.json();
+        })
+        .catch((error) => {
+          console.error(`Failed to fetch details for product ID ${id}:`, error);
+          return null;
+        });
     });
+
+    try {
+      const products = await Promise.all(fetchPromises);
+      const validProducts = products.filter((product) => product !== null);
+
+      let htmlContent = "";
+      if (validProducts.length > 0) {
+        validProducts.forEach((product) => {
+          htmlContent += `
+                            <div class="prodCard row col-10 col-lg-3">
+                                <div class="img col-12">
+                                    <img src="${product.thumbnail}" alt="${product.title}" loading="lazy">
+                                </div>
+                                <div class="details row col-12">
+                                    <h5 class="title col-9">${product.title}</h5>
+                                    <h5 class="price col-3">$${product.price}</h5>                             
+                                </div>
+                                <div class="btnDiv row col-12">
+                                    <button class="addBtn col-5 " onclick="addToCart(${product.id})">add to cart</button>
+                                    <button class="removeBtn col-5" data-product-id="${product.id}">Remove</button>
+                                </div>
+                            </div>
+                        `;
+        });
+      }
+      if (validProducts.length === 0 && productIds.length > 0) {
+        htmlContent =
+          "<h1>Could not load details for items in your cart.</h1><p>Please try refreshing the page.</p>";
+      } else if (validProducts.length < productIds.length) {
+        htmlContent +=
+          '<p style="color:red;">Note: Some items could not be loaded.</p>';
+      }
+
+      productsContainer.innerHTML = htmlContent;
+      const removeButtons = document.querySelectorAll(".removeBtn");
+      removeButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const productIdToRemove = parseInt(this.dataset.productId);
+          removeFromWishlist(productIdToRemove);
+        });
+      });
+    } catch (error) {
+      console.error(
+        "wishlist error: Error processing wishlist products:",
+        error
+      );
+      productsContainer.innerHTML =
+        "<h1>Error displaying wishlist items. Please try again.</h1>";
+    }
+  };
+
+  displayWishlist();
+});
+
+// add to cart
+function addToCart(productId) {
+  // Retrieve the username of the logged-in user from localStorage
+  const loginData = JSON.parse(localStorage.getItem("login"));
+
+  const username = loginData.username;
+  const storageKey = `ordered_products_${username}`;
+
+  // Get existing ordered products from localStorage (if any)
+  let orderedProducts = localStorage.getItem(storageKey);
+  orderedProducts = orderedProducts ? JSON.parse(orderedProducts) : [];
+
+  // Add the current product ID to the array
+  orderedProducts.push(productId);
+
+  // Save the updated array back to localStorage
+  localStorage.setItem(storageKey, JSON.stringify(orderedProducts));
+
+  console.log(`Product ID ${productId} is added to ${username} cart.`);
 }
 
-// Function to remove an item from the wishlist
-function removeFromWishlist(productId) {
-    // Retrieve the current username from localStorage
-    const username = JSON.parse(localStorage.getItem("login")).username;
-
-    // Get the wishlist for the current user, or initialize as an empty array if not found
-    let wishlist = JSON.parse(localStorage.getItem(`wishlist_${username}`)) || [];
-
-    // Remove the item from the wishlist array
-    wishlist = wishlist.filter(item => item !== productId);
-
-    // Save the updated wishlist back to localStorage for the current user
-    localStorage.setItem(`wishlist_${username}`, JSON.stringify(wishlist));
-
-    // Refresh the wishlist page
-    location.reload();
-}
+// scroll top btn
+let scrollToTopButton = document.getElementById("toTop");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 400) {
+    scrollToTopButton.style.opacity = "1";
+  } else {
+    scrollToTopButton.style.opacity = "0";
+  }
+});
+scrollToTopButton.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});

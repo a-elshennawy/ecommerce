@@ -56,54 +56,82 @@
 
     .btnDiv {
       justify-content: space-between;
+      text-align: center;
       padding: 0px;
 
       .addBtn {
-        border: 1px solid #000;
-        border-radius: 5px;
         padding: 5px 10px;
+        border: 1px solid #000;
         background-color: #fff;
         color: #000;
-        transition: box-shadow 0.3s ease-in-out;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+
+        a {
+          text-decoration: none;
+          color: #fff;
+        }
 
         &:hover {
-          background-color: #48ff00;
-          border: none;
-          color: #fff;
-          box-shadow: 0 0 10px #48ff00;
+          filter: drop-shadow(0 0 10px #0cff2d);
+          border: 1px solid #0cff2d;
         }
       }
 
       .detailsBtn {
-        border: 1px solid #000;
-        border-radius: 5px;
         padding: 5px 10px;
+        border: 1px solid #000;
         background-color: #fff;
         color: #000;
-        transition: box-shadow 0.3s ease-in-out;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+
+        a {
+          text-decoration: none;
+          color: #fff;
+        }
 
         &:hover {
-          background-color: #00aeff;
-          border: none;
+          filter: drop-shadow(0 0 10px #00aeff);
+          border: 1px solid #00aeff;
+        }
+      }
+
+      .wishBtn {
+        padding: 5px 10px;
+        border: 1px solid #000;
+        background-color: #fff;
+        color: #000;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+
+        a {
+          text-decoration: none;
           color: #fff;
-          box-shadow: 0 0 10px #00aeff;
+        }
+
+        &:hover {
+          filter: drop-shadow(0 0 10px #fd004c);
+          border: 1px solid #fd004c;
         }
       }
 
       .removeBtn {
-        border: 1px solid #000;
-        border-radius: 5px;
         padding: 5px 10px;
+        border: 1px solid #000;
         background-color: #fff;
         color: #000;
-        transition: box-shadow 0.3s ease-in-out;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+
+        a {
+          text-decoration: none;
+          color: #fff;
+        }
 
         &:hover {
-          border: 1px solid #ff0000;
-          background-color: #ff0000;
-          border: none;
-          color: #fff;
-          filter: drop-shadow(0 0 10px #ff0000);
+          filter: drop-shadow(0 0 10px #fd0000);
+          border: 1px solid #fd0000;
         }
       }
     }
