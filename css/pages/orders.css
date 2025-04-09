@@ -1,7 +1,6 @@
 @import url(../base/fonts.css);
 @import url(../base/animations.css);
 @import url(../base/loader.css);
-@import url(../base/navbar.css);
 
 /* global styles */
 * {
@@ -22,6 +21,10 @@ img {
   text-align: center;
   width: fit-content;
   margin: 20px auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   h4 {
     background-color: #000;
     color: #fff;
