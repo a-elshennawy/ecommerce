@@ -1,15 +1,14 @@
 // loader
-document.addEventListener('DOMContentLoaded', function () {
-
+document.addEventListener("DOMContentLoaded", function () {
   const loader = document.querySelector(".loader");
   if (loader) {
-    loader.style.display = 'none';
+    loader.style.display = "none";
     setTimeout(() => {
-        if (loader) {
-            loader.style.display = 'none';
-        }
+      if (loader) {
+        loader.style.display = "none";
+      }
     }, 1000);
-}
+  }
 
   const productsContainer = document.getElementById("wishlist");
 
@@ -44,7 +43,8 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
   if (productIds.length === 0) {
-    productsContainer.innerHTML = '<h1 class="emptyContainer">Your wihslist is empty.</h1>';
+    productsContainer.innerHTML =
+      '<h1 class="emptyContainer">Your wihslist is empty.</h1>';
     return;
   }
 
@@ -85,11 +85,11 @@ document.addEventListener('DOMContentLoaded', function () {
       if (validProducts.length > 0) {
         validProducts.forEach((product) => {
           htmlContent += `
-                            <div class="prodCard row col-10 col-lg-3">
-                                <div class="img col-12">
+                            <div class="prodCard row col-12 col-lg-3">
+                                <div class="img col-4 col-lg-12">
                                     <img src="${product.thumbnail}" alt="${product.title}" loading="lazy">
                                 </div>
-                                <div class="details row col-12">
+                                <div class="details row col-8 col-lg-12">
                                     <h5 class="title col-9">${product.title}</h5>
                                     <h5 class="price col-3">$${product.price}</h5>                             
                                 </div>

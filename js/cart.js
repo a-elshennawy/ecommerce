@@ -94,11 +94,11 @@ document.addEventListener("DOMContentLoaded", function () {
         chekoutBtn.classList.remove("d-none");
         validProducts.forEach((product) => {
           htmlContent += `
-                      <div class="prodCard row col-10 col-lg-3">
-                          <div class="img col-12">
+                      <div class="prodCard row col-12 col-lg-3">
+                          <div class="img col-4 col-lg-12">
                               <img src="${product.thumbnail}" alt="${product.title}" loading="lazy">
                           </div>
-                          <div class="details row col-12">
+                          <div class="details row col-8 col-lg-12">
                               <h5 class="title col-9">${product.title}</h5>
                               <h5 class="price col-3">$${product.price}</h5>                             
                           </div>

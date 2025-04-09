@@ -28,7 +28,8 @@ function searchProductsFromApi(term) {
   if (term.trim() === "") {
     // search is empty
     (async () => {
-      productsContainer.innerHTML = '<p class="loading">Loading products...</p>';
+      productsContainer.innerHTML =
+        '<p class="loading">Loading products...</p>';
       try {
         const response = await fetch(
           "https://dummyjson.com/products?limit=200"
@@ -36,13 +37,13 @@ function searchProductsFromApi(term) {
         const data = await response.json();
         data.products.forEach((product) => {
           html += `
-            <div class="prodCard row col-10 col-lg-3">
-              <div class="img col-12">
+            <div class="prodCard row col-12 col-lg-3">
+              <div class="img col-4 col-lg-12">
                 <img src="${product.thumbnail}" alt="${
             product.title
           }" loading="lazy">
               </div>
-              <div class="details row col-12">
+              <div class="details row col-8 col-lg-12">
                 <h5 class="title col-9">${product.title}</h5>
                 <h5 class="price col-3">$${product.price}</h5>
                 <h6 class="category col-4">${product.category}</h6>
@@ -71,13 +72,15 @@ function searchProductsFromApi(term) {
         productsContainer.innerHTML = html;
       } catch (error) {
         console.error("Error:", error);
-        productsContainer.innerHTML = '<p class="pageError">Error loading products</p>';
+        productsContainer.innerHTML =
+          '<p class="pageError">Error loading products</p>';
       }
     })();
     return;
   } else {
     (async () => {
-      productsContainer.innerHTML = '<p class="searching">Searching products...</p>';
+      productsContainer.innerHTML =
+        '<p class="searching">Searching products...</p>';
       try {
         const response = await fetch(
           "https://dummyjson.com/products?limit=200"
@@ -87,13 +90,13 @@ function searchProductsFromApi(term) {
         data.products.forEach((product) => {
           if (product.title.toLowerCase().includes(term.trim().toLowerCase())) {
             html += `
-              <div class="prodCard row col-10 col-lg-3">
-                <div class="img col-12">
+              <div class="prodCard row col-12 col-lg-3">
+                <div class="img col-4 col-lg-12">
                   <img src="${product.thumbnail}" alt="${
               product.title
             }" loading="lazy">
                 </div>
-                <div class="details row col-12">
+                <div class="details row col-8 col-lg-12">
                   <h5 class="title col-9">${product.title}</h5>
                   <h5 class="price col-3">$${product.price}</h5>
                   <h6 class="category col-4">${product.category}</h6>
@@ -131,7 +134,8 @@ function searchProductsFromApi(term) {
         }
       } catch (error) {
         console.error("Error:", error);
-        productsContainer.innerHTML = '<h1 class="searchError">Error searching products</h1>';
+        productsContainer.innerHTML =
+          '<h1 class="searchError">Error searching products</h1>';
       }
     })();
   }
@@ -142,7 +146,8 @@ function searchProductsFromApi(term) {
   const productsContainer = document.getElementById("products");
 
   try {
-    productsContainer.innerHTML = '<h1 class="searching">Searching products...</h1>';
+    productsContainer.innerHTML =
+      '<h1 class="searching">Searching products...</h1>';
 
     const response = await fetch("https://dummyjson.com/products?limit=200");
     const data = await response.json();
@@ -152,13 +157,13 @@ function searchProductsFromApi(term) {
     let html = "";
     data.products.forEach((product) => {
       html += `
-        <div class="prodCard row col-10 col-lg-3">
-          <div class="img col-12">
+        <div class="prodCard row col-12 col-lg-3">
+          <div class="img col-4 col-lg-12">
             <img src="${product.thumbnail}" alt="${
         product.title
       }" loading="lazy">
           </div>
-          <div class="details row col-12">
+          <div class="details row col-8 col-lg-12">
             <h5 class="title col-9">${product.title}</h5>
             <h5 class="price col-3">$${product.price}</h5>
             <h6 class="category col-4">${product.category}</h6>
@@ -187,7 +192,8 @@ function searchProductsFromApi(term) {
     productsContainer.innerHTML = html;
   } catch (error) {
     console.error("Error:", error);
-    productsContainer.innerHTML = '<h1 class="searchError">Error searching products</h1>';
+    productsContainer.innerHTML =
+      '<h1 class="searchError">Error searching products</h1>';
   }
 })();
 

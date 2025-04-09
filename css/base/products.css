@@ -1,7 +1,6 @@
 .products {
   padding: 20px 0px;
   justify-content: center;
-  align-items: center;
 
   .prodCard {
     border-radius: 5px;
@@ -14,6 +13,8 @@
 
     .img {
       overflow: hidden;
+      text-align: center;
+      align-content: center;
       img {
         transition: all 0.3s ease-in-out;
       }
