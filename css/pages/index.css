@@ -102,7 +102,7 @@ body {
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 576px) {
   .login_form {
     width: 60%;
   }

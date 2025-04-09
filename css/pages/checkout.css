@@ -20,6 +20,7 @@ img {
 
 body {
   text-align: center !important;
+  position: relative;
 }
 
 .CheckoutForm {
@@ -32,12 +33,9 @@ body {
   border-radius: 10px;
   justify-content: start;
   gap: 10px;
-  width: 30%;
+  width: 30dvw;
   margin: 20px auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
   .inputContainer {
     padding: 0px;
     text-align: start;
@@ -86,4 +84,23 @@ body {
   background-image: url(../../img/pexels-ivan-samkov-7621136.jpg);
   z-index: -1;
   filter: brightness(40%);
+}
+
+/* responsive */
+@media screen and (max-width: 992px) {
+  .CheckoutForm {
+    width: 50dvw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .CheckoutForm {
+    width: 60dvw;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .CheckoutForm {
+    width: 80dvw;
+  }
 }

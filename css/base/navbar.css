@@ -5,6 +5,9 @@
   position: sticky;
   z-index: 111;
   top: 0%;
+  right: 0%;
+  left: 0%;
+  margin-bottom: 50px;
 
   .navbar-brand {
     img {
@@ -12,12 +15,22 @@
       margin: auto;
     }
   }
-
+  .navbar-toggler {
+    color: #fff !important;
+    span {
+      color: #fff !important;
+      i {
+        color: #fff;
+      }
+    }
+  }
   .collapse {
     justify-content: center;
     .navbar-nav {
       .nav-item {
+        width: fit-content;
         .nav-link {
+          padding: 10px;
           font-family: Bold !important;
           color: #fff;
           transition: all 0.3s ease-in-out;

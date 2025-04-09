@@ -53,12 +53,12 @@ document.addEventListener("DOMContentLoaded", function () {
       if (product) {
         htmlContent = `
             <div class="prodDetails row col-12">
-                        <div class="img col-4">
+                        <div class="img col-12 col-lg-4">
                             <img src="${product.thumbnail}" alt="${
           product.title
         }" loading="lazy">
                         </div>
-                        <div class="details row col-8">
+                        <div class="details row col-12 col-lg-8">
                             <h2 class="title col-12">${product.title} <br>$ ${
           product.price
         }</h2>

@@ -30,7 +30,7 @@ body {
   border-radius: 10px;
   filter: drop-shadow(0 0 10px #000);
   padding: 10px;
-  justify-content: center;
+  justify-content: start;
 
   .prodDetails {
     justify-content: center;
@@ -73,6 +73,8 @@ body {
   }
 
   .reviewsConatiner {
+    margin-top: 20px;
+    padding: 0px 20px;
     justify-content: start;
     .reviewHeader {
       font-family: Bold;
@@ -84,6 +86,7 @@ body {
     .reviews {
       list-style: none;
       padding: 0px !important;
+      width: fit-content;
 
       .reviewItem {
         font-family: thin;
