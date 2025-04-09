@@ -19,10 +19,6 @@ searchInput.addEventListener("input", function () {
 
 // Retrieve username from localStorage
 const username = JSON.parse(localStorage.getItem("login")).username;
-//userGreetings
-document.querySelectorAll("#userGreetings").forEach((span) => {
-  span.innerHTML = username;
-});
 
 // Function to search products fetched from the API
 function searchProductsFromApi(term) {
@@ -32,7 +28,7 @@ function searchProductsFromApi(term) {
   if (term.trim() === "") {
     // search is empty
     (async () => {
-      productsContainer.innerHTML = "<p>Loading products...</p>";
+      productsContainer.innerHTML = '<p class="loading">Loading products...</p>';
       try {
         const response = await fetch(
           "https://dummyjson.com/products?limit=200"
@@ -75,13 +71,13 @@ function searchProductsFromApi(term) {
         productsContainer.innerHTML = html;
       } catch (error) {
         console.error("Error:", error);
-        productsContainer.innerHTML = "<p>Error loading products</p>";
+        productsContainer.innerHTML = '<p class="pageError">Error loading products</p>';
       }
     })();
     return;
   } else {
     (async () => {
-      productsContainer.innerHTML = "<p>Searching products...</p>";
+      productsContainer.innerHTML = '<p class="searching">Searching products...</p>';
       try {
         const response = await fetch(
           "https://dummyjson.com/products?limit=200"
@@ -129,13 +125,13 @@ function searchProductsFromApi(term) {
 
         if (html === "") {
           productsContainer.innerHTML =
-            "<p>No products found matching your search.</p>";
+            '<h1 class="noMatch">No products found matching your search.</h1>';
         } else {
           productsContainer.innerHTML = html;
         }
       } catch (error) {
         console.error("Error:", error);
-        productsContainer.innerHTML = "<p>Error searching products</p>";
+        productsContainer.innerHTML = '<h1 class="searchError">Error searching products</h1>';
       }
     })();
   }
@@ -146,7 +142,7 @@ function searchProductsFromApi(term) {
   const productsContainer = document.getElementById("products");
 
   try {
-    productsContainer.innerHTML = "<p>Loading products...</p>";
+    productsContainer.innerHTML = '<h1 class="searching">Searching products...</h1>';
 
     const response = await fetch("https://dummyjson.com/products?limit=200");
     const data = await response.json();
@@ -191,7 +187,7 @@ function searchProductsFromApi(term) {
     productsContainer.innerHTML = html;
   } catch (error) {
     console.error("Error:", error);
-    productsContainer.innerHTML = "<p>Error loading products</p>";
+    productsContainer.innerHTML = '<h1 class="searchError">Error searching products</h1>';
   }
 })();
 

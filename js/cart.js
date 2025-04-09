@@ -1,19 +1,20 @@
 // loader
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   const loader = document.querySelector(".loader");
   const productsContainer = document.getElementById("productsContainer");
   const chekoutBtn = document.getElementById("CheckoutBtn");
 
   if (loader) {
-      loader.style.display = 'none';
-      setTimeout(() => {
-          if (loader) {
-              loader.style.display = 'none';
-          }
-      }, 1000);
+    loader.style.display = "none";
+    setTimeout(() => {
+      if (loader) {
+        loader.style.display = "none";
+      }
+    }, 1000);
   }
 
-  productsContainer.innerHTML = "<p>Loading your cart...</p>";
+  productsContainer.innerHTML = `<h1 class="loading">Loading your cart...</h1>`;
+  chekoutBtn.classList.add("d-none");
 
   let username = null;
 
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
   } catch (error) {
-    productsContainer.innerHTML = "<h1>Error retrieving your cart data.</h1>";
+    productsContainer.innerHTML = `<h1 class="errorRetreving">Error retrieving your cart data.</h1>`;
     console.error(
       `Cart page error: Error parsing cart data for key ${storageKey}:`,
       error
@@ -48,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (productIds.length === 0) {
-    productsContainer.innerHTML = "<h1>Your cart is empty.</h1>";
+    productsContainer.innerHTML = `<h1 class="emptyContainer">Your cart is empty.</h1>`;
     chekoutBtn.classList.add("d-none");
     return;
   }
@@ -90,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       let htmlContent = "";
       if (validProducts.length > 0) {
+        chekoutBtn.classList.remove("d-none");
         validProducts.forEach((product) => {
           htmlContent += `
                       <div class="prodCard row col-10 col-lg-3">
@@ -109,12 +111,11 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       if (validProducts.length === 0 && productIds.length > 0) {
-        htmlContent =
-          "<h1>Could not load details for items in your cart.</h1><p>Please try refreshing the page.</p>";
+        htmlContent = `<h1 class="pageError">Could not load details for items in your cart.<br>Please try refreshing the page.</h1>`;
         chekoutBtn.classList.add("d-none");
       } else if (validProducts.length < productIds.length) {
         htmlContent +=
-          '<p style="color:red;">Note: Some items could not be loaded.</p>';
+          '<h1 class="itemError">Note: Some items could not be loaded.</h1>';
         chekoutBtn.classList.add("d-none");
       }
 
@@ -129,8 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     } catch (error) {
       console.error("Cart page error: Error processing cart products:", error);
-      productsContainer.innerHTML =
-        "<h1>Error displaying cart items. Please try again.</h1>";
+      productsContainer.innerHTML = `<h1 class="pageError">Error displaying cart items. Please try again.</h1>`;
       chekoutBtn.classList.add("d-none");
     }
   };

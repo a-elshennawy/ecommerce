@@ -2,6 +2,7 @@
 @import url(../base/animations.css);
 @import url(../base/loader.css);
 @import url(../base/navbar.css);
+@import url(../base/fixedTexts.css);
 
 /* global styles */
 * {
@@ -34,12 +35,14 @@ body {
   .prodDetails {
     justify-content: center;
     align-items: center;
+    font-family: Regular;
 
     .details {
       text-align: start !important;
       .title {
         padding: 0 !important;
         margin-bottom: 10px;
+        font-family: Bold;
       }
       .brand {
         padding: 0 !important;
@@ -52,6 +55,7 @@ body {
       .btnDiv {
         text-align: center;
         .addBtn {
+          font-family: Bold;
           border: 1px solid #fff;
           border-radius: 10px;
           padding: 5px 10px;
@@ -71,6 +75,7 @@ body {
   .reviewsConatiner {
     justify-content: start;
     .reviewHeader {
+      font-family: Bold;
       text-align: start;
       padding: 0px !important;
       margin-bottom: 10px;
@@ -81,6 +86,7 @@ body {
       padding: 0px !important;
 
       .reviewItem {
+        font-family: thin;
         text-align: start;
         margin-bottom: 10px;
       }

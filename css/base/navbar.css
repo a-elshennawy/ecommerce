@@ -18,23 +18,41 @@
     .navbar-nav {
       .nav-item {
         .nav-link {
+          font-family: Bold !important;
           color: #fff;
           transition: all 0.3s ease-in-out;
 
           &:hover {
-            transform: scale(1.2);
-            color: #00aeff;
+            background-color: #000;
+            border-radius: 10px;
             margin: 0px 10px;
+            letter-spacing: 2px;
           }
         }
+      }
+      .here {
+        filter: drop-shadow(0 0 10px #fff);
+        background-color: #000;
+        border-radius: 10px;
+        transform: scale(1.1);
+        margin: 0px 10px;
       }
     }
 
     .searchInput {
+      font-family: Bold !important;
       padding: 5px;
       outline: none;
       border: none;
       border-radius: 5px;
+    }
+  }
+  .contact {
+    margin: 0px 10px;
+    p {
+      padding: 0px !important;
+      margin: 5px 0px;
+      color: #fff;
     }
   }
 }

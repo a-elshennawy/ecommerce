@@ -10,11 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 1000);
   }
 
-  //   setting container
   const prductContainer = document.getElementById("productsContainer");
-  prductContainer.innerHTML = "<p>Loading your product...</p>";
+  prductContainer.innerHTML = '<h1 class="loading">Loading products...</h1>';
 
-  //   setting current username
   let username = null;
   const loginData = JSON.parse(localStorage.getItem("login"));
   if (loginData && loginData.username) {
@@ -30,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
       productId = JSON.parse(storedProductId);
     }
   } catch (error) {
-    prductContainer.innerHTML = "<h1>Error retrieving your product data.</h1>";
+    prductContainer.innerHTML = '<h1 class="errorRetreving">Error retrieving your product data.</h1>';
     console.error(
       `product details error: Error parsing product data for key ${storageKey}:`,
       error
@@ -105,19 +103,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 `
                     )
                     .join("")
-                : "<p>no reviews available</p>"
+                : '<h3 class="noReviews">no reviews available</h3>'
             }
             </ul>
             </div>
             `;
       } else {
         htmlContent =
-          "<h1>Could not load product details.</h1><p>Please try again.</p>";
+          '<h1 class="pageError">Could not load product details.<br>Please try again.</h1>';
       }
       prductContainer.innerHTML = htmlContent;
     } catch (error) {
       prductContainer.innerHTML =
-        "<h1>Error loading product details.</h1><p>Please try again later.</p>";
+        '<h1class="itemError">Error loading product details.<br>Please try again later.</h1>';
     }
   };
   productDisplay();
@@ -125,7 +123,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // add to cart
 function addToCart(productId) {
-  // Retrieve the username of the logged-in user from localStorage
   const loginData = JSON.parse(localStorage.getItem("login"));
   if (!loginData || !loginData.username) {
     console.error("User not logged in or username not found.");
@@ -134,16 +131,12 @@ function addToCart(productId) {
   const username = loginData.username;
   const storageKey = `ordered_products_${username}`;
 
-  // Get existing ordered products from localStorage (if any)
   let orderedProducts = localStorage.getItem(storageKey);
   orderedProducts = orderedProducts ? JSON.parse(orderedProducts) : [];
 
-  // Add the current product ID to the array
   orderedProducts.push(productId);
 
-  // Save the updated array back to localStorage
   localStorage.setItem(storageKey, JSON.stringify(orderedProducts));
 
   console.log(`Product ID ${productId} added to cart for user ${username}.`);
-  // You might want to add some user feedback here, like updating a cart counter
 }

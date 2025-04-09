@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   } catch (error) {
     productsContainer.innerHTML =
-      "<h1>Error retrieving your wishlist data.</h1>";
+      '<h1 class="errorRetreving">Error retrieving your wishlist data.</h1>';
     console.error(
       `wishlist error: Error parsing cart data for key ${storageKey}:`,
       error
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
   if (productIds.length === 0) {
-    productsContainer.innerHTML = "<h1>Your wihslist is empty.</h1>";
+    productsContainer.innerHTML = '<h1 class="emptyContainer">Your wihslist is empty.</h1>';
     return;
   }
 
@@ -103,10 +103,10 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       if (validProducts.length === 0 && productIds.length > 0) {
         htmlContent =
-          "<h1>Could not load details for items in your cart.</h1><p>Please try refreshing the page.</p>";
+          '<h1 class="pageError">Could not load details for items in your cart.<br>Please try refreshing the page.</h1>';
       } else if (validProducts.length < productIds.length) {
         htmlContent +=
-          '<p style="color:red;">Note: Some items could not be loaded.</p>';
+          '<h1 class="itemError">Note: Some items could not be loaded.</h1>';
       }
 
       productsContainer.innerHTML = htmlContent;
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
         error
       );
       productsContainer.innerHTML =
-        "<h1>Error displaying wishlist items. Please try again.</h1>";
+        '<h1 class="pageError">Error displaying wishlist items. Please try again.</h1>';
     }
   };
 

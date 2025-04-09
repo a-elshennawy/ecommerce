@@ -1,30 +1,16 @@
 @font-face {
-    font-family: Archivo-Bold;
-    src: url(../fonts/Archivo_Condensed-Bold.ttf);
+  font-family: Bold;
+  src: url(../fonts/Roboto_Condensed-Bold.ttf);
 }
-
 @font-face {
-    font-family: Archivo-Regular;
-    src: url(../fonts/Archivo_Condensed-Regular.ttf);
+  font-family: Light;
+  src: url(../fonts/Roboto_Condensed-Light.ttf);
 }
-
 @font-face {
-    font-family: GeistMono-bold;
-    src: url(../fonts/GeistMono-Bold.ttf);
+  font-family: Regular;
+  src: url(../fonts/Roboto_Condensed-Regular.ttf);
 }
-
-
 @font-face {
-    font-family: GeistMono-light;
-    src: url(../fonts/GeistMono-Light.ttf);
-}
-
-@font-face {
-    font-family: GeistMono-med;
-    src: url(../fonts/GeistMono-Medium.ttf);
-}
-
-@font-face {
-    font-family: GeistMono-reg;
-    src: url(../fonts/GeistMono-Regular.ttf);
+  font-family: Thin;
+  src: url(../fonts/Roboto_Condensed-Thin.ttf);
 }

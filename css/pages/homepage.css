@@ -3,15 +3,14 @@
 @import url(../base/loader.css);
 @import url(../base/navbar.css);
 @import url(../base/products.css);
-@import url(../base/footer.css);
 @import url(../base/upBtn.css);
+@import url(../base/fixedTexts.css);
 
 
 /* global styles */
 * {
   text-transform: capitalize !important;
   box-sizing: border-box;
-  font-family: Archivo-Regular;
 }
 
 :root {
